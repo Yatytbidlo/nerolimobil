@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a5b6b42e86.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Neroli</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg border-bottom border-body"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <button id="searchFormToggle">
+          <img src="images/search.png" alt="" />
+        </button>
+
+        <img class="logo" src="images/logo.svg" alt="" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active nav-links" aria-current="page" href="#"
+                >Парфюм</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Аккорды</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">О нас</a>
+            </li>
+          </ul>
+        </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Поиск по названию" />
+          <button id="searchButton">
+            <img src="images/search.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="greeting">
+      <p>Бесплатная доставка по всему Казахстану!</p>
+      <h1>Стойкий парфюм из Швейцарии для сильных мужчин</h1>
+      <div
+        id="carouselExampleControlsNoTouching"
+        class="carousel slide"
+        data-bs-touch="false"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/gallery2.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="images/gallery1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="images/gallery3.jpg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="bubbles">
+      <div class="bubbles-flex">
+        <button class="reset-notes">
+          Сбросить фильтрацию <img style="width: 12px" src="images/x.png" />
+        </button>
+        <button id="toggleFilters">
+          Категории товаров <img style="width: 12px" src="images/filter.png" />
+        </button>
+      </div>
+      <div class="selected-category"></div>
+    </div>
+    <div class="listing">
+      <div class="products-container">
+        <section
+          class="filter-panel"
+          style="border: 1px solid black; padding: 10px"
+        >
+          <div class="filter-category category-one">
+            <h3>Пожелания</h3>
+            <div class="line"></div>
+            <ul style="padding-left: 0px">
+              <li data-f="neroli-grape">Хочу пахнуть богато</li>
+              <li data-f="lalique">Хочу ощущений будто лес после дождя</li>
+              <li data-f="neroli">Хочу аромат березового леса</li>
+              <li data-f="jimmychoo">Хочу пахнуть фруктовым ароматом</li>
+              <li data-f="jimmychoointense">
+                Хочу оказаться на лавандавом поле
+              </li>
+            </ul>
+          </div>
+
+          <div class="filter-category category-two">
+            <h3>Ноты</h3>
+            <div class="line"></div>
+            <div class="expandable">
+              <label
+                ><input type="checkbox" value="neroli jimmychoo" />Ананас</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="jimmychoo jimmychoointense"
+                />Лаванда</label
+              >
+              <label><input type="checkbox" value="neroli" />Бергамот</label>
+              <label
+                ><input type="checkbox" value="neroli" />Черная смородина</label
+              >
+              <label><input type="checkbox" value="neroli" />Яблоко</label>
+              <label><input type="checkbox" value="neroli" />Береза</label>
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoo jimmychoointense"
+                />Пачули</label
+              >
+              <label
+                ><input type="checkbox" value="neroli" />Марокканский
+                жасмин</label
+              >
+              <label><input type="checkbox" value="neroli" />Роза</label>
+              <label><input type="checkbox" value="neroli" />Мускус</label>
+              <label
+                ><input
+                  type="checkbox"
+                  value="jimmychoo jimmychoointense"
+                />Дыня</label
+              >
+              <label><input type="checkbox" value="neroli" />Дубовый мох</label>
+              <label><input type="checkbox" value="neroli" />Серая амбра</label>
+              <label><input type="checkbox" value="neroli" />Ваниль</label>
+              <label
+                ><input type="checkbox" value="neroli-grape" />Грейпфрукт</label
+              >
+              <label
+                ><input type="checkbox" value="neroli-grape" />Ambroxan</label
+              >
+              <label
+                ><input type="checkbox" value="neroli-grape" />Древесные
+                ноты</label
+              >
+              <label><input type="checkbox" value="lalique" />Кипарис</label>
+              <label><input type="checkbox" value="lalique" />Ветивер</label>
+              <label
+                ><input type="checkbox" value="lalique" />Кашемировое
+                дерево</label
+              >
+              <label><input type="checkbox" value="lalique" />Мускус</label>
+            </div>
+            <div class="buttons-show">
+              <div class="show-more">Показать ещё</div>
+              <div class="show-hide">Скрыть</div>
+            </div>
+          </div>
+
+          <div class="filter-category">
+            <h3>Аккорды</h3>
+            <div class="line"></div>
+            <div class="expandable-accords">
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli-grape lalique"
+                />Древесный</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="lalique jimmychoo jimmychoointense"
+                />Фужерный</label
+              >
+              <label><input type="checkbox" value="lalique" />Землистый</label>
+              <label
+                ><input
+                  type="checkbox"
+                  value="lalique neroli-grape neroli jimmychoo"
+                />Мускусный</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli-grape neroli"
+                />Цитрусовый</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli-grape jimmychoointense"
+                />Амбровый</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli-grape jimmychoointense"
+                />Пряный</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoo"
+                />Фруктовый</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoo jimmychoointense"
+                />Сладкий</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoo"
+                />Кожаный</label
+              >
+              <label><input type="checkbox" value="neroli" />Дымный</label>
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoo"
+                />Тропический</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="neroli jimmychoointense jimmychoo"
+                />Свежий</label
+              >
+              <label><input type="checkbox" value="neroli" />Мшистый</label>
+            </div>
+            <div class="buttons-show">
+              <div class="show-more-accords">Показать ещё</div>
+              <div class="show-hide-accords">Скрыть</div>
+            </div>
+          </div>
+
+          <div class="category-three">
+            <div class="filter-category">
+              <h3>Стойкость</h3>
+              <div style="width: 50%" class="line"></div>
+
+              <ul>
+                <li data-f="neroli jimmychoo jimmychoointense">Средний</li>
+                <li data-f="lalique neroli-grape">Стойкий</li>
+                <li>Вечный</li>
+              </ul>
+            </div>
+
+            <div class="filter-category">
+              <h3>Шлейф</h3>
+              <div style="width: 38%" class="line"></div>
+
+              <ul>
+                <li>Интимный</li>
+                <li data-f="lalique neroli jimmychoo jimmychoointense">
+                  Средний
+                </li>
+                <li data-f="neroli-grape">Заметный</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pop-up контейнер -->
+        <div id="popupContainer" class="popup">
+          <div class="popup-content">
+            <span class="close" id="closePopup">&times;</span>
+            <div class="popup-product">
+              <img src="" alt="Изображение товара" id="popupImage" />
+              <div class="product-info">
+                <h2 id="popupTitle"></h2>
+                <p id="popupDescription"></p>
+                <label style="margin-bottom: 5px" for="volumeSelect"
+                  >Выберите объем:</label
+                >
+                <select id="volumeSelect">
+                  <option value="1ml">1мл</option>
+                  <option value="30ml">30мл</option>
+                  <option value="50ml">50мл</option>
+                  <option value="100ml">100мл</option>
+                </select>
+                <p id="popupPrice"></p>
+                <button id="addToCart">Добавить в корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="products">
+          <h4 class="nothing">Пока что нет товара по выбранной категории</h4>
+
+          <div class="neroli box">
+            <img class="box-image" src="images/neroli.jpg" alt="Neroli" />
+            <h4 class="box-header">Neroli Perfume</h4>
+            <p class="box-p">Основной аккорд // фруктовый</p>
+            <button class="view-details" data-product="Neroli">
+              Подробнее
+            </button>
+          </div>
+
+          <div class="neroli-grape box">
+            <img
+              class="box-image"
+              src="images/neroligrape.jpg"
+              alt="Neroli Grape"
+            />
+            <h4 class="box-header">Neroli Grape</h4>
+            <p class="box-p">Основной аккорд // цитрусовый</p>
+            <button class="view-details" data-product="Neroli Grape">
+              Подробнее
+            </button>
+          </div>
+
+          <div class="lalique box">
+            <img class="box-image" src="images/lalique.jpg" alt="Lalique" />
+            <h4 class="box-header">Encre Noire Lalique</h4>
+            <p class="box-p">Основной аккорд // древесный</p>
+            <button class="view-details" data-product="Encre Noire Lalique">
+              Подробнее
+            </button>
+          </div>
+
+          <div class="jimmychoo box">
+            <img
+              class="box-image"
+              src="images/jimmychoo.jpg"
+              alt="Jimmy Choo Man"
+            />
+            <h4 class="box-header">Jimmy Choo Man</h4>
+            <p class="box-p">Основной аккорд // сладкий</p>
+            <button class="view-details" data-product="Jimmy Choo Man">
+              Подробнее
+            </button>
+          </div>
+
+          <div class="jimmychoointense box">
+            <img
+              class="box-image"
+              src="images/jimmychoointense.jpg"
+              alt="Jimmy Choo Intense"
+            />
+            <h4 class="box-header">Jimmy Choo Man Intense</h4>
+            <p class="box-p">Основной аккорд // свежий</p>
+            <button class="view-details" data-product="Jimmy Choo Man Intense">
+              Подробнее
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <main id="main">
+      <h2 class="mainh2">Наши стили</h2>
+      <div class="card">
+        <img
+          class="card-image"
+          src="images/classic.jpg"
+          alt="A City skyline at sunset"
+        />
+
+        <div class="text">
+          <h2 class="text-h2" data-splitting="">Классический стиль</h2>
+          <p class="text-p" data-splitting="">
+            Классический стиль - это символ элегантности, деликатности и
+            превосходства. Именно эти качества вы найдете в нашем аромате
+            Neroli. Свежие ноты бергамота и яблока, мягкие акценты розмарина и
+            пачули, подчеркнутые нежной ванилью и мускусом, делают этот аромат
+            идеальным дополнением к классическому стилю.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img
+          class="card-image"
+          src="images/sport.jpg"
+          alt="A City skyline at sunset"
+        />
+
+        <div class="text">
+          <h2 class="text-h2" data-splitting="">Спортивный стиль</h2>
+          <p class="text-p" data-splitting="">
+            Спортивный стиль в одежде часто характеризуется его простотой и
+            функциональностью. Neroli, с его легким и независимым ароматом,
+            дополняет эту простоту, придавая вам ощущения свежести и энергии,
+            будь вы на тренировке, на прогулке или просто наслаждаетесь активным
+            днём.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" tabindex="0">
+        <img
+          class="card-image"
+          src="images/modern.jpg"
+          alt="A City skyline at sunset"
+        />
+
+        <div class="text">
+          <h2 class="text-h2" data-splitting="">Современный стиль</h2>
+          <p class="text-p" data-splitting="">
+            Современный стиль - это эксперименты, дерзость и новаторство. Именно
+            эти качества вы найдете в нашем аромате Neroli. Его свежие и
+            интригующие ноты идеально сочетаются с самыми новыми тендециями
+            моды.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <section style="background-color: #2b2b2b">
+      <h2 class="contacts-h2">Контакты</h2>
+      <div class="contacts">
+        <img class="contacts-img" src="images/logo.svg" alt="Logo" />
+        <div class="emailtel">
+          <a class="emaila" target="_blank" href="mailto:neroli.kz @gmail.com"
+            ><img class="email" src="images/iconemail.png" alt=""
+          /></a>
+          <a class="tela" target="_blank" href="tel:+7 707 797 62 43"
+            ><img class="tel" src="images/telephone.png" alt=""
+          /></a>
+        </div>
+      </div>
+
+      <div class="social">
+        <ul class="wrapper">
+          <li class="icon instagram">
+            <span class="tooltip">Instagram</span>
+            <span><i class="fab fa-instagram"></i></span>
+          </li>
+          <li class="icon youtube">
+            <span class="tooltip">TikTok</span>
+            <span><i class="fab fa-tiktok"></i></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="down-footer">© Neroli Perfume 2023</div>
+    </section>
+
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
